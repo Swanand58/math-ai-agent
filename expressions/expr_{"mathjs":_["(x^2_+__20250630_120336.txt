@@ -1,0 +1,13 @@
+Mathematical Expression:
+MathJS: {"mathjs": ["(x^2 + y^2)/1000", "((x + y)^2)/1000"], "latex": ["\\frac{x^2 + y^2}{1000}", "\\frac{(x + y)^2}{1000}"]}
+LaTeX:  {"mathjs": ["(x^2 + y^2)/1000", "((x + y)^2)/1000"], "latex": ["\\frac{x^2 + y^2}{1000}", "\\frac{(x + y)^2}{1000}"]}
+
+SymPy representation:
+{latex: [\frac{x**2 + y**2}{1000}, \frac{(x + y)**2}{1000}], mathjs: [(x**2 + y**2)/1000, ((x + y)**2)/1000]}
+
+JSON Representation:
+{
+  "mathjs": "{\"mathjs\": [\"(x^2 + y^2)/1000\", \"((x + y)^2)/1000\"], \"latex\": [\"\\\\frac{x^2 + y^2}{1000}\", \"\\\\frac{(x + y)^2}{1000}\"]}",
+  "latex": "{\"mathjs\": [\"(x^2 + y^2)/1000\", \"((x + y)^2)/1000\"], \"latex\": [\"\\\\frac{x^2 + y^2}{1000}\", \"\\\\frac{(x + y)^2}{1000}\"]}",
+  "sympy_repr": "{latex: [\\frac{x**2 + y**2}{1000}, \\frac{(x + y)**2}{1000}], mathjs: [(x**2 + y**2)/1000, ((x + y)**2)/1000]}"
+}

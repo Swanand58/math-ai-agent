@@ -1,0 +1,15 @@
+Mathematical Expression:
+Query: integrate the whole (x plus y squared divided by 1000)
+MathJS: integrate(x + y^2/1000)
+LaTeX:  \int \left(x + \frac{y^2}{1000} \right) dx
+
+Response time: 1.252 seconds
+
+JSON Representation:
+{
+  "mathjs": "integrate(x + y^2/1000)",
+  "latex": "\\int \\left(x + \\frac{y^2}{1000} \\right) dx",
+  "sympy_repr": null,
+  "response_time": 1.2518830299377441,
+  "user_input": "integrate the whole (x plus y squared divided by 1000)"
+}
