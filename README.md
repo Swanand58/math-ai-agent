@@ -11,15 +11,12 @@ A simple math agent built using Agno that converts natural language mathematical
    ```
 
 2. Set up your API key:
-   - Copy the env.example file to .env:
-     ```
-     cp env.example .env
-     ```
    - Edit the .env file with your API key:
      - You can use GROQ API key (default)
      ```
      GROQ_API_KEY=your_api_key_here
      ```
+     - You can use any other LLM API key by making the appropriate changes in the code (see "Customizing the LLM Provider" section below)
 
 ## Usage
 
@@ -38,6 +35,60 @@ Enter mathematical expressions in natural language, and the agent will return:
 - LaTeX representation
 - SymPy rendered expression (when possible)
 - Response time (in seconds)
+
+## Customizing the LLM Provider
+
+To use a different LLM provider instead of GROQ:
+
+1. Add the appropriate API key to your `.env` file, for example:
+
+   ```
+   # GROQ_API_KEY=your_groq_key_here
+   ANTHROPIC_API_KEY=your_anthropic_key_here
+   # OPENAI_API_KEY=your_openai_key_here
+   ```
+
+2. Modify the `math_agent.py` file to use the desired provider:
+
+   - Uncomment the appropriate import at the top of the file
+
+   ```python
+   from agno.models.groq import Groq
+   from agno.models.anthropic import Claude  # Uncomment this line for Claude
+   from agno.models.openai import OpenAI     # Uncomment this line for OpenAI
+   ```
+
+   - Update the `__init__` method in the `MathAgent` class:
+
+   ```python
+   def __init__(self, model_provider="claude"):  # Change default here
+       """Initialize the math agent with Agno"""
+       # Configure the model based on provider
+       if model_provider.lower() == "claude":
+           model = Claude(id="claude-sonnet-4-20250514")  # Uncomment and modify as needed
+       elif model_provider.lower() == "openai":
+           model = OpenAI(id="gpt-4o")  # Uncomment and modify as needed
+       elif model_provider.lower() == "groq":
+           model = Groq(id="llama3-70b-8192")
+       else:
+           raise ValueError(f"Unsupported model provider: {model_provider}")
+   ```
+
+   - Modify the `main()` function to check for your chosen API key:
+
+   ```python
+   def main():
+       """Main function to run the math agent"""
+       # Check for your API key here
+       if not os.getenv("ANTHROPIC_API_KEY"):  # Change to your API key
+           print("API key not found")
+           exit(1)
+
+       print(f"Using Claude as the model provider.")  # Update provider name
+       math_agent = MathAgent(model_provider="claude")  # Change provider
+   ```
+
+3. The code is designed to work with various LLM providers through Agno's unified interface, but some providers may respond differently, so testing is recommended.
 
 ### Commands
 
