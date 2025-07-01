@@ -38,6 +38,8 @@ class MathAgent:
             2. Output ONLY a JSON object with two fields:
                - mathjs: the expression in MathJS format
                - latex: the same expression in LaTeX format
+            3. At the most basic always look for the BODMAS rules to determine the order of operations.
+            
             
             IMPORTANT: DO NOT include any reasoning, thinking steps, or explanations in your response.
             DO NOT include <think> tags or any other tags.

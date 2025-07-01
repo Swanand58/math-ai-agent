@@ -1,15 +1,0 @@
-Mathematical Expression:
-MathJS: y / 1000
-LaTeX:  rac{y}{1000}
-
-SymPy representation:
- y  
-────
-1000
-
-JSON Representation:
-{
-  "mathjs": "y / 1000",
-  "latex": "\frac{y}{1000}",
-  "sympy_repr": " y  \n\u2500\u2500\u2500\u2500\n1000"
-}
